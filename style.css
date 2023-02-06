@@ -6,6 +6,18 @@
 body{
     background-color: black;
 }
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    padding:10px;
+    background-color: #12002F;
+}
+
+.sub{
+    display: flex;
+    align-items: center;
+}
 .hamburger{
     display: block;
     width:35px;
@@ -14,6 +26,7 @@ body{
     background: none;
     outline:none;
     border:none;
+    z-index:1000;
 }
 
 .hamburger .bar, .hamburger::before, .hamburger:after{
@@ -24,4 +37,53 @@ body{
     background-color: #fff;
     margin:6px 0;
     transition: .4s;
+}
+
+.hamburger.is-active::before{
+    transform:rotate(-45deg) translate(-8px,6px);
+}
+
+.hamburger.is-active .bar{
+    opacity: 0 ;
+}
+
+.hamburger.is-active::after{
+    transform:rotate(45deg) translate(-9px,-8px);
+}
+h2{
+    z-index:1000;
+}
+
+.mobile-nav{
+    position: fixed;
+    top: 0;
+    left:100%;
+    width:100%;
+    min-height:100vh;
+    display: block;
+    z-index:100;
+    transition:.4s;
+    background-color: #12002F;
+    padding-top:128px;
+    text-align: center;
+}
+
+.is-active.mobile-nav{
+    left:0;
+}
+.mobile-nav a {
+    display: block;
+    /* text-align:center; */
+    margin:0 auto 16px;
+    padding:12px 16px;
+    background-color: #1f103f;
+    width:100%;
+    max-width:200px;
+    color:white;
+    transition:.4s;
+    text-decoration: none;
+}
+
+.mobile-nav a:hover{
+    background-color: #241f44;
 }
